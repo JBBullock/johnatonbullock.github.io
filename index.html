@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retro Portfolio in CRT</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+      font-family: "Courier New", monospace;
+    }
+
+    /* Monitor wrapper */
+    .crt-monitor {
+      position: relative;
+      width: 900px;   /* adjust to fit your CRT image */
+      max-width: 95vw;
+    }
+
+    /* CRT border image */
+    .crt-frame {
+      width: 100%;
+      display: block;
+    }
+    #contact a,
+    #contact a:link,
+    #contact a:visited,
+    #contact a:hover,
+    #contact a:active {
+      color: #0f0 !important;
+      text-decoration: none !important;
+    }
+
+    #contact a:hover {
+      text-decoration: underline;
+      text-shadow: 0 0 8px #0f0;
+    }
+
+    /* Interactive green screen */
+    .screen {
+      position: absolute;
+      top: 100px;   /* adjust to align with CRT screen */
+      left: 53px;  /* adjust to align with CRT screen */
+      width: 765px; /* adjust width */
+      height: 550px;/* adjust height */
+      background-color: #000;
+      color: #00ff00;
+      border: 2px solid #222;
+      border-radius: 15px;
+      box-shadow: inset 0 0 20px #0f0;
+      overflow-y: auto;
+      padding: 15px;
+      font-size: 1rem;
+      text-shadow: 0 0 5px #0f0;
+      z-index: 2; /* ensures it's on top of the CRT frame */
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      text-align: center;
+      text-shadow: 0 0 5px #0f0, 0 0 10px #0f0;
+    }
+
+    nav {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #0f0;
+    }
+
+    section {
+      margin: 20px 0;
+      border-top: 1px solid #0f0;
+      padding-top: 10px;
+    }
+
+    .project {
+      margin: 10px auto;
+      padding: 10px;
+      border: 1px solid #0f0;
+      box-shadow: 0 0 8px #0f0;
+    }
+
+    footer {
+      margin-top: 20px;
+      text-align: center;
+      border-top: 1px solid #0f0;
+      padding-top: 5px;
+      font-size: 0.9rem;
+    }
+
+    /* Blinking cursor */
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      background-color: #0f0;
+      animation: blink 1s infinite;
+      margin-left: 3px;
+    }
+    @keyframes blink {
+      50% { background-color: transparent; }
+    }
+
+    /* Scanlines */
+    .screen::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(0,255,0,0.05),
+        rgba(0,255,0,0.05) 2px,
+        transparent 2px,
+        transparent 4px
+      );
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="crt-monitor">
+    <!-- CRT Border -->
+    <img src="images/crt_border_two.png" alt="Old CRT Monitor" class="crt-frame">
+
+    <!-- Interactive Screen -->
+    <div class="screen">
+      <header>
+        <h1>Hello World!<span class="cursor"></span></h1>
+        <nav>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <section id="about">
+        <h2>About Me</h2>
+        <p>Hello! I'm an Informatics major who dabbles in coding cool projects, learning new tech, and building awesome websites. My main goal is become a cybersecurity analyst.</p>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="project">
+          <h3>Project 1: Graveyard Shift</h3>
+          <p>This was a short game I decided to code from scratch using Pygame. I was curious about the 
+            development process of building a video game and decided to try it on a small scale. The game is available on
+            my Github profile below. Be sure to read the README file!
+          </p>
+        </div>
+        <div class="project">
+          <h3>Project 2: Icon Converter/ Image Compressor</h3>
+          <p> As I was working with website building, such as this one, I noticed a growing issue. Long load times, were killing my vision,
+            on top of that I didn't really trust online websites to shrink my images. The solution was my Image Compressor, along with an Icon 
+            Converter that takes png files and converts them into icon files. The latter was especially useful when choosing an app Icon for my video
+            game project above.
+          </p>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:johnatonbullock@gmail.com">johnatonbullock@gmail.com</a></p>
+        <p>GitHub: <a href="https://github.com/JBBullock" target="_blank">JBBullock</a></p>
+      </section>
+
+      <footer>
+        <p>&copy; 2025 Johnaton Bullock. All rights reserved.</p>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // Typewriter effect
+    const title = "Hello World!";
+    const headerEl = document.querySelector("header h1");
+    let i = 0;
+
+    function typeEffect() {
+      if (i < title.length) {
+        headerEl.innerHTML = title.substring(0, i+1) + '<span class="cursor"></span>';
+        i++;
+        setTimeout(typeEffect, 100);
+      }
+    }
+    headerEl.innerHTML = '<span class="cursor"></span>';
+    typeEffect();
+  </script>
+</body>
+</html>
