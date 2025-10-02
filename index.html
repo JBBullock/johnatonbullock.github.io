@@ -3,8 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Retro Portfolio in CRT</title>
   <style>
     body {
@@ -46,17 +44,17 @@
     /* Interactive green screen */
     .screen {
       position: absolute;
-      top: 100px;   /* adjust to align with CRT screen */
-      left: 53px;  /* adjust to align with CRT screen */
-      width: 765px; /* adjust width */
-      height: 550px;/* adjust height */
+      top: 10%;   /* adjust to align with CRT screen */
+      left: 6.5%;  /* adjust to align with CRT screen */
+      width: 88%; /* adjust width */
+      height: 67%;/* adjust height */
       background-color: #000;
       color: #00ff00;
       border: 2px solid #222;
       border-radius: 15px;
       box-shadow: inset 0 0 20px #0f0;
       overflow-y: auto;
-      padding: 15px;
+      padding: 3%px;
       font-size: 1rem;
       text-shadow: 0 0 5px #0f0;
       z-index: 2; /* ensures it's on top of the CRT frame */
@@ -130,7 +128,7 @@
 <body>
   <div class="crt-monitor">
     <!-- CRT Border -->
-    <img src="crt_border_two.png" alt="Old CRT Monitor" class="crt-frame">
+    <img src="images/crt_border_two.png" alt="Old CRT Monitor" class="crt-frame">
 
     <!-- Interactive Screen -->
     <div class="screen">
@@ -159,8 +157,8 @@
         </div>
         <div class="project">
           <h3>Project 2: Icon Converter/ Image Compressor</h3>
-          <p> As I was working with website building, such as this one, I noticed a growing issue. Long load times were perplexing me,
-            until I discovered that website slow load times could be caused by large images. My solution was the Image Compressor, along with an Icon 
+          <p> As I was working with website building, such as this one, I noticed a growing issue. Long load times, were killing my vision,
+            on top of that I didn't really trust online websites to shrink my images. The solution was my Image Compressor, along with an Icon 
             Converter that takes png files and converts them into icon files. The latter was especially useful when choosing an app Icon for my video
             game project above.
           </p>
